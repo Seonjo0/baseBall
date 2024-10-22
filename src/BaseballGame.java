@@ -2,6 +2,7 @@ import java.util.*;
 
 public class BaseballGame {
     public static void main(String[] args) {
+        System.out.println("실행됨");
         Random random = new Random();
         Scanner scanner = new Scanner(System.in);
         HashSet<String> strings = new LinkedHashSet<>();
