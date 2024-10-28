@@ -1,11 +1,20 @@
+import enums.UserInputStatus;
+
 import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
 public class UserInputManager {
-    private final Scanner scanner = new Scanner(System.in);
+    private final Scanner scanner;
+
+    public UserInputManager(Scanner scanner) {
+        this.scanner = scanner;
+    }
 
     // 사용자에게 반복적으로 입력을 받는 메소드
+    // try - with - resource를 적용시키기에는 Scanner 객체를 주입받고 있어서 적용이 다소 어렵다
+    // Scanner를 주입받지 않을 경우 resource에 연결하여 사용할 수 있음
+    // Resource에 해당하는 객체 : AutoCloseable을 구현한 구현체 가능
     public String getUserInput() {
         String userInput = "";
         UserInputStatus inputStatus = UserInputStatus.NULL;
